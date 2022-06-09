@@ -1,42 +1,114 @@
 .App {
   text-align: center;
+  padding-top: 30px;
+  /* padding-left: 11px; */
+}
+.overAll {
+  padding-left: 3px;
+  /* padding-bottom: 100px; */
+}
+
+.like-button {
+  margin-right: 25px;
+  font-size: 15px;
+}
+.disLike-button {
+  font-size: 15px;
+}
+
+.all {
+  height: 400px;
+  float: left;
+  width: 24.5%;
+  border-style: solid;
+  object-fit: cover;
+  padding-top: 20px;
+
+  /* background-color: red; */
 }
 
 .profilePic {
-  border-radius: 200px;
+  width: 70%;
+  /* height: 250px; */
+  border-radius: 1000px;
+}
+/* .movie-container :hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: 0.4s;
+} */
+.counter {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
 }
 
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.movie-container {
+  /* background-color: gray; */
+  padding-top: 13px;
+  width: 340px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.movie-poster {
+  width: 340px;
+  height: 500px;
+  object-fit: cover;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.movie-specs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.movie-rating {
+  font-size: larger;
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-around;
+  padding-bottom: 30px;
+}
+
+.input-button {
+  margin-left: 10px;
+}
+
+.addMovie {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.addMovie1 {
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
 }
 
-.App-link {
-  color: #61dafb;
+.input-name,
+.input-poster-url,
+.input-rating,
+.input-summary {
+  width: 40%;
+  height: 30px;
+  margin-bottom: 5px;
+  font-size: 18px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
+.input-addMovie-btn {
+  background-color: #4caf50;
+  border-radius: 100px;
+  border: none;
+  color: black;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  width: 10%;
+}
+
+.input-addMovie-btn-div {
+  padding-top: 10px;
+}
