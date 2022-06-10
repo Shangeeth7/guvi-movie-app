@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import { Routes, Route, Link, Navigate } from "react-router-dom";
 
 function App() {
   const initialMovieList = [
@@ -70,9 +71,48 @@ function App() {
 
   return (
     <div>
-      <MovieList movieList={movieList} setMovieList={setMovieList} />
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">HOME</Link>
+          </li>
+          <li>
+            <Link to="/color-game">COLOR GAME</Link>
+          </li>
+          <li>
+            <Link to="/movie-page">MOVIES</Link>
+          </li>
+        </ul>
+      </nav>
+      {/* <MovieList movieList={movieList} setMovieList={setMovieList} /> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/color-game" element={<AddColor />} />
+        <Route
+          path="/movie-page"
+          element={
+            <MovieList movieList={movieList} setMovieList={setMovieList} />
+          }
+        />
+        <Route path="*" element={<NotFound />} />
+        <Route path="/flims" element={<Navigate replace to="/movie-page" />} />
+      </Routes>
     </div>
   );
+}
+
+function NotFound() {
+  return (
+    <img
+      className="Error404"
+      src="https://miro.medium.com/max/1400/1*DeBkx8vjbumpCO-ZkPE9Cw.png"
+      alt="error404"
+    ></img>
+  );
+}
+
+function Home() {
+  return <h1>Welcome to main page</h1>;
 }
 
 function MovieList({ movieList, setMovieList }) {
@@ -80,11 +120,20 @@ function MovieList({ movieList, setMovieList }) {
   const [moviePoster, setMoviePoster] = useState("");
   const [movieRating, setMovieRating] = useState("");
   const [movieSummary, setMovieSummary] = useState("");
+  const addMovieFunction = () => {
+    const newMovie = {
+      name: movieName,
+      poster: moviePoster,
+      rating: movieRating,
+      summary: movieSummary,
+    };
+    setMovieList([newMovie, ...movieList]);
+  };
   return (
     <div className="addMovie">
       <div className="addMovie1">
         <h3>ADD MOVIES HERE</h3>
-        {/* onChange={(event)=>()} */}
+
         <input
           onChange={(event) => setMovieName(event.target.value)}
           className="input-name"
@@ -112,21 +161,7 @@ function MovieList({ movieList, setMovieList }) {
         <p>Summary:{movieSummary}</p>
 
         <div className="input-addMovie-btn-div">
-          <button
-            onClick={() => {
-              const newMovie = {
-                name: movieName,
-                poster: moviePoster,
-                rating: movieRating,
-                summary: movieSummary,
-              };
-              setMovieList([newMovie, ...movieList]);
-              // console.log(newMovie);
-              // console.log(...movieList);
-              console.log([newMovie, ...movieList]);
-            }}
-            className="input-addMovie-btn"
-          >
+          <button onClick={addMovieFunction} className="input-addMovie-btn">
             add movie
           </button>
         </div>
@@ -136,8 +171,6 @@ function MovieList({ movieList, setMovieList }) {
           // index and key are used to clear error in console
           <Movie key={index} movie={data} />
         ))}
-
-        <AddColor />
       </div>
     </div>
   );
