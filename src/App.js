@@ -94,7 +94,8 @@ function App() {
             <MovieList movieList={movieList} setMovieList={setMovieList} />
           }
         />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/error:404" element={<NotFound />} />
+        <Route path="*" element={<Navigate replace to="/error:404" />} />
         <Route path="/flims" element={<Navigate replace to="/movie-page" />} />
       </Routes>
     </div>
@@ -103,11 +104,9 @@ function App() {
 
 function NotFound() {
   return (
-    <img
-      className="Error404"
-      src="https://miro.medium.com/max/1400/1*DeBkx8vjbumpCO-ZkPE9Cw.png"
-      alt="error404"
-    ></img>
+    <div className="image-container" alt="error404">
+      <p className="text"> 404 ERROR </p>
+    </div>
   );
 }
 
@@ -119,7 +118,8 @@ function MovieList({ movieList, setMovieList }) {
   const [movieName, setMovieName] = useState("");
   const [moviePoster, setMoviePoster] = useState("");
   const [movieRating, setMovieRating] = useState("");
-  const [movieSummary, setMovieSummary] = useState("");
+  const [movieSummary, setMovieSummary] = useState();
+
   const addMovieFunction = () => {
     const newMovie = {
       name: movieName,
@@ -155,10 +155,10 @@ function MovieList({ movieList, setMovieList }) {
           className="input-summary"
           placeholder="summary"
         />
-        <p>name:{movieName}</p>
+        {/* <p>name:{movieName}</p>
         <p>Poster:{moviePoster}</p>
         <p>Rating:{movieRating}</p>
-        <p>Summary:{movieSummary}</p>
+        <p>Summary:{movieSummary}</p> */}
 
         <div className="input-addMovie-btn-div">
           <button onClick={addMovieFunction} className="input-addMovie-btn">

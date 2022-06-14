@@ -118,3 +118,37 @@
   max-height: 700px;
   object-fit: contain;
 }
+
+.container {
+  background: url(https://miro.medium.com/max/1400/1*DeBkx8vjbumpCO-ZkPE9Cw.png);
+}
+
+.Error404 {
+  padding: 12px;
+  background-color: red;
+  mix-blend-mode: screen;
+}
+
+.image-container {
+  background-image: url("https://wallpaperaccess.com/full/6692775.jpg");
+  background-size: cover;
+  position: relative;
+  height: 750px;
+  width: 100%;
+}
+
+.text {
+  background-color: green;
+  color: black;
+  font-size: 10vw;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+}
