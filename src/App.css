@@ -40,25 +40,22 @@
 .counter {
   padding-top: 20px;
   padding-bottom: 20px;
-  display: flex;
-  justify-content: flex-end;
 }
 
 .movie-container {
-  /* background-color: gray; */
   padding-top: 13px;
   width: 340px;
 }
 
+.movie-specs,
+.toggle-info {
+  display: flex;
+  justify-content: space-between;
+}
 .movie-poster {
   width: 340px;
   height: 500px;
   object-fit: cover;
-}
-
-.movie-specs {
-  display: flex;
-  justify-content: space-between;
 }
 
 .movie-rating {
@@ -83,6 +80,7 @@
 }
 .addMovie1 {
   padding-left: 30px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
 }
@@ -92,21 +90,25 @@
 .input-rating,
 .input-summary {
   width: 40%;
-  height: 30px;
-  margin-bottom: 5px;
   font-size: 18px;
+}
+.input-name {
+  padding-bottom: 100px;
 }
 
 .input-addMovie-btn {
   background-color: #4caf50;
   border-radius: 100px;
   border: none;
-  color: black;
+  color: white;
   padding: 15px 30px;
   text-align: center;
   font-size: 16px;
   cursor: pointer;
   width: 10%;
+}
+.input-addMovie-btn:hover {
+  color: whitesmoke;
 }
 
 .input-addMovie-btn-div {
@@ -151,4 +153,47 @@
   left: 50%;
   transform: translate(-50%, -50%);
   mix-blend-mode: screen;
+}
+
+.movie-summary {
+  line-height: 21px;
+  height: calc(5 * 21px);
+  overflow: hidden;
+  position: relative;
+}
+.movie-summary::after {
+  content: "";
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 21px;
+  width: 75%;
+
+  background: linear-gradient(90deg, transparent, white);
+}
+
+.movie-details-container {
+  max-width: 900px;
+}
+.back-movieDetailsPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 15px;
+}
+
+.previous-back-btn {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 30px;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 4vh;
+  max-width: 100%;
+  display: flex;
+}
+
+.inputButtons-div {
+  padding-bottom: 10px;
 }
