@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 
 export function MovieDetails({ movieList }) {
   const { id } = useParams();
-  let movieDetailsPage = [...movieList][id];
+  const movieDetailsPage = movieList[id];
 
   let styles;
   if (movieDetailsPage.rating >= 8) {
@@ -17,6 +17,7 @@ export function MovieDetails({ movieList }) {
   }
 
   const navigateBack = useNavigate();
+
   return (
     <div>
       <iframe

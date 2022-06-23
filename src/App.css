@@ -38,13 +38,17 @@
   transition: 0.4s;
 } */
 .counter {
-  padding-top: 20px;
+  /* padding-top: 20px; */
   padding-bottom: 20px;
+}
+.app-css {
+  padding-bottom: 10px;
 }
 
 .movie-container {
-  padding-top: 13px;
+  /* padding-top: 13px; */
   width: 340px;
+  /* height: min-content; */
 }
 
 .movie-specs,
@@ -155,24 +159,6 @@
   mix-blend-mode: screen;
 }
 
-.movie-summary {
-  line-height: 21px;
-  height: calc(5 * 21px);
-  overflow: hidden;
-  position: relative;
-}
-.movie-summary::after {
-  content: "";
-
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 21px;
-  width: 75%;
-
-  background: linear-gradient(90deg, transparent, white);
-}
-
 .movie-details-container {
   max-width: 900px;
 }
@@ -196,4 +182,31 @@
 
 .inputButtons-div {
   padding-bottom: 10px;
+}
+
+.tic-tac-toe {
+  padding-left: 10px;
+}
+
+.game-box {
+  height: 160px;
+  /* width: 160px; */
+  background-color: white;
+  color: black;
+  font-size: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+}
+.game-box:hover {
+  cursor: pointer;
+  background-color: whitesmoke;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-template-columns: repeat(3,1fr); */
+  max-width: 600px;
 }
