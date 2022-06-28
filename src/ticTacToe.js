@@ -1,4 +1,3 @@
-import { color } from "@mui/system";
 import Button from "@mui/material/Button";
 import useWindowSize from "react-use/lib/useWindowSize";
 import Confetti from "react-confetti";
@@ -8,7 +7,9 @@ import { useState } from "react";
 export default function TicTacToe() {
   return (
     <div className="tic-tac-toe">
-      <h1>Play a Fun game</h1>
+      <h1>
+        <span className="fun-color-change">Fun</span> game
+      </h1>
 
       <Board />
     </div>
@@ -33,12 +34,12 @@ function Board() {
     ];
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
-      console.log(a, b, c);
+      // console.log(a, b, c);
 
       if (board[a] !== null && board[a] === board[b] && board[b] === board[c]) {
-        console.log(lines[i], a, b, c);
-        console.log(board);
-        console.log("winner is :", board[a]);
+        // console.log(lines[i], a, b, c);
+        // console.log(board);
+        // console.log("winner is :", board[a]);
         return board[a];
       }
     }
@@ -61,9 +62,21 @@ function Board() {
     }
   };
   const { width, height } = useWindowSize();
+  const val = isXTurn ? "X" : "O";
+  const styles = {
+    color: val === "X" ? "green" : "red",
+  };
+
   return (
     <div>
-      {/* <Confetti width={width} height={height} /> */}
+      <div>
+        {winner === null ? (
+          <h2>
+            <span style={styles}>{isXTurn ? `${val}` : `O`}</span>'s turn
+          </h2>
+        ) : null}
+      </div>
+
       <div className="board">
         {board.map((val, index) => (
           <GameBox val={val} onPlayerClick={() => handleClick(index)} />
