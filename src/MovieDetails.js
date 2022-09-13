@@ -51,20 +51,20 @@ export function MovieDetails() {
       </div>
       <div className="previous-back-btn">
         <Button
-          onClick={() => navigateBack(`/allmovies/${parseInt(id) - 1}`)}
+          onClick={() => navigateBack(`/movies/${parseInt(id) - 1}`)}
           variant="outlined"
         >
           previous
         </Button>
         <Button
-          onClick={() => navigateBack(`/allmovies/${parseInt(id) + 1}`)}
+          onClick={() => navigateBack(`/movies/${parseInt(id) + 1}`)}
           variant="outlined"
         >
           next
         </Button>
       </div>
       <div className="back-movieDetailsPage">
-        <Button onClick={() => navigateBack("/allmovies")} variant="outlined">
+        <Button onClick={() => navigateBack("/movies")} variant="outlined">
           back
         </Button>
       </div>

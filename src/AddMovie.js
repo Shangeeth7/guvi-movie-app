@@ -26,7 +26,7 @@ export function AddMovie() {
       method: "POST",
       body: JSON.stringify(newMovie),
       headers: { "Content-Type": "application/json" },
-    }).then(() => navigate("/allmovies"));
+    }).then(() => navigate("/movies"));
   };
   return (
     <div className="addMovie1">

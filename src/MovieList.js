@@ -45,7 +45,7 @@ function MovieList() {
           editButton={
             <Button
               onClick={() => {
-                navigate(`/allmovies/edit-movie/${mv.id}`);
+                navigate(`/movies/edit-movie/${mv.id}`);
               }}
             >
               <EditIcon color="secondary" />

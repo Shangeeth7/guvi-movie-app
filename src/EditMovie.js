@@ -50,7 +50,7 @@ function EditMovieForm({ movieEditPage }) {
       method: "PUT",
       body: JSON.stringify(updateMovie),
       headers: { "Content-Type": "application/json" },
-    }).then(() => navigate("/allmovies"));
+    }).then(() => navigate("/movies"));
   };
 
   return (

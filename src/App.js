@@ -46,11 +46,11 @@ function App() {
                 <Button onClick={() => navigate(`/color-game`)} color="inherit">
                   Color Game
                 </Button>
-                <Button onClick={() => navigate(`/allmovies`)} color="inherit">
+                <Button onClick={() => navigate(`/movies`)} color="inherit">
                   Movies
                 </Button>
                 <Button
-                  onClick={() => navigate(`/allmovies/add-movie`)}
+                  onClick={() => navigate(`/movies/add-movie`)}
                   color="inherit"
                 >
                   Add Movie
@@ -92,16 +92,13 @@ function App() {
             <Route path="/color-game" element={<AddColorGame />} />
             <Route path="/light-dark" element={<LightDarkExample />} />
             <Route path="/tic-tac-toe" element={<TicTacToe />} />
-            <Route path="/allmovies" element={<MovieList />} />
-            <Route path="/allmovies/add-movie" element={<AddMovie />} />
-            <Route path="/allmovies/edit-movie/:id" element={<EditMovie />} />
+            <Route path="/movies" element={<MovieList />} />
+            <Route path="/movies/add-movie" element={<AddMovie />} />
+            <Route path="/movies/edit-movie/:id" element={<EditMovie />} />
             <Route path="/error:404" element={<NotFound />} />
             <Route path="*" element={<Navigate replace to="/error:404" />} />
-            <Route
-              path="/flims"
-              element={<Navigate replace to="/allmovies" />}
-            />
-            <Route path="/allmovies/:id" element={<MovieDetails />} />
+            <Route path="/flims" element={<Navigate replace to="/movies" />} />
+            <Route path="/movies/:id" element={<MovieDetails />} />
             <Route path="/basic-form" element={<BasicForm />} />
           </Routes>
         </div>
