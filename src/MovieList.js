@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
+import { API } from "./global.js";
 
 function MovieList() {
   const [movieList, setMovieList] = useState([]);
