@@ -9,7 +9,7 @@ import { API } from "./global.js";
 function MovieList() {
   const [movieList, setMovieList] = useState([]);
   const fetchMovie = () => {
-    fetch("${API}/movie", {
+    fetch(`${API}/movie`, {
       method: "GET",
     })
       .then((data) => data.json())
