@@ -1,13 +1,14 @@
+import * as React from "react";
 import { useState } from "react";
 import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AddColorGame } from "./AddColorGame";
 import { MovieList } from "./MovieList";
 import { AddMovie } from "./AddMovie";
+import { EditMovie } from "./EditMovie";
 import { NotFound } from "./NotFound";
 import { MovieDetails } from "./MovieDetails";
 import { LightDarkExample } from "./lightDark";
-import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -19,6 +20,7 @@ import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import TicTacToe from "./ticTacToe";
 import { Home } from "./Home";
+import { BasicForm } from "./Form";
 
 function App() {
   const navigate = useNavigate();
@@ -62,7 +64,11 @@ function App() {
                 <Button onClick={() => navigate(`/light-dark`)} color="inherit">
                   🌕 🌑
                 </Button>
+                <Button onClick={() => navigate(`/basic-form`)} color="inherit">
+                  Form
+                </Button>
                 <Button
+                  style={{ marginLeft: "auto" }}
                   startIcon={
                     themeColor === "dark" ? (
                       <Brightness7Icon />
@@ -88,6 +94,7 @@ function App() {
             <Route path="/tic-tac-toe" element={<TicTacToe />} />
             <Route path="/movie-page" element={<MovieList />} />
             <Route path="/movie-page/add-movie" element={<AddMovie />} />
+            <Route path="/movie-page/edit-movie/:id" element={<EditMovie />} />
             <Route path="/error:404" element={<NotFound />} />
             <Route path="*" element={<Navigate replace to="/error:404" />} />
             <Route
@@ -95,6 +102,7 @@ function App() {
               element={<Navigate replace to="/movie-page" />}
             />
             <Route path="/movie-page/:id" element={<MovieDetails />} />
+            <Route path="/basic-form" element={<BasicForm />} />
           </Routes>
         </div>
       </Paper>

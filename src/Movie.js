@@ -9,7 +9,7 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 
-export function Movie({ movie, id, deleteButton }) {
+export function Movie({ movie, id, deleteButton, editButton }) {
   let styles;
   if (movie.rating >= 8) {
     styles = {
@@ -69,7 +69,7 @@ export function Movie({ movie, id, deleteButton }) {
           ) : null} */}
         <div>
           <CardActions>
-            <Counter /> {deleteButton}
+            <Counter /> {deleteButton} {editButton}
           </CardActions>
         </div>
       </Card>

@@ -1,19 +1,43 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "@mui/material";
 import { API } from "./global.js";
 
-export function AddMovie() {
-  const [movieName, setMovieName] = useState("");
-  const [moviePoster, setMoviePoster] = useState("");
-  const [movieRating, setMovieRating] = useState("");
-  const [movieSummary, setMovieSummary] = useState("");
-  const [movieTrailer, setMovieTrailer] = useState("");
+export function EditMovie() {
+  // start - from Movie Details Page
+  const { id } = useParams();
+
+  const [movieEditPage, setMovieEditPage] = useState(null);
+  const fetchMovie = () => {
+    fetch(`${API}/movie/${id}`, {
+      method: "GET",
+    })
+      .then((data) => data.json())
+      .then((mvs) => setMovieEditPage(mvs));
+  };
+
+  useEffect(() => fetchMovie(), []);
+  //end - from Movie Details Page
+
+  return movieEditPage ? (
+    <EditMovieForm movieEditPage={movieEditPage} />
+  ) : (
+    "Loading"
+  );
+}
+
+function EditMovieForm({ movieEditPage }) {
+  const [movieName, setMovieName] = useState(movieEditPage.name);
+
+  const [moviePoster, setMoviePoster] = useState(movieEditPage.poster);
+  const [movieRating, setMovieRating] = useState(movieEditPage.rating);
+  const [movieSummary, setMovieSummary] = useState(movieEditPage.summary);
+  const [movieTrailer, setMovieTrailer] = useState(movieEditPage.trailer);
   const navigate = useNavigate();
 
-  const addMovieFunction = () => {
-    const newMovie = {
+  const editMovieFunction = () => {
+    const updateMovie = {
       name: movieName,
       poster: moviePoster,
       rating: movieRating,
@@ -21,19 +45,20 @@ export function AddMovie() {
       trailer: movieTrailer,
     };
 
-    // setMovieList([...movieList, newMovie]);
-    fetch(`${API}/movie`, {
-      method: "POST",
-      body: JSON.stringify(newMovie),
+    // setMovieList([...movieList, updateMovie]);
+    fetch(`${API}/movie/${movieEditPage.id}`, {
+      method: "PUT",
+      body: JSON.stringify(updateMovie),
       headers: { "Content-Type": "application/json" },
     }).then(() => navigate("/movie-page"));
   };
+
   return (
     <div className="addMovie1">
-      <h3>ADD MOVIES HERE</h3>
+      <h3>EDIT HERE</h3>
       <div className="inputButtons-div" action="/action_page.php">
         <TextField
-          required
+          value={movieName}
           onChange={(event) => setMovieName(event.target.value)}
           label="movie name"
           variant="outlined"
@@ -47,7 +72,7 @@ export function AddMovie() {
           className="input-poster-url"
           label="poster (url)"
           variant="outlined"
-          required
+          value={moviePoster}
         />
       </div>
       <div className="inputButtons-div">
@@ -58,6 +83,7 @@ export function AddMovie() {
           label="rating"
           variant="outlined"
           type="number"
+          value={movieRating}
         />
       </div>
       <div className="inputButtons-div">
@@ -67,6 +93,7 @@ export function AddMovie() {
           className="input-summary"
           label="summary"
           variant="outlined"
+          value={movieSummary}
         />
       </div>
       <div className="inputButtons-div">
@@ -76,21 +103,22 @@ export function AddMovie() {
           className="input-summary"
           label="trailer"
           variant="outlined"
+          value={movieTrailer}
         />
       </div>
       {/* <p>name:{movieName}</p>
-              <p>Poster:{moviePoster}</p>
-              <p>Rating:{movieRating}</p>
-              <p>Summary:{movieSummary}</p> */}
+                <p>Poster:{moviePoster}</p>
+                <p>Rating:{movieRating}</p>
+                <p>Summary:{movieSummary}</p> */}
 
       <div className="input-addMovie-btn-div">
         <Button
           color="success"
           variant="outlined"
-          onClick={addMovieFunction}
+          onClick={editMovieFunction}
           className="input-addMovie-btn"
         >
-          add movie
+          save
         </Button>
       </div>
     </div>

@@ -1,17 +1,18 @@
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { useState, useEffect } from "react";
+import { API } from "./global.js";
 
 export function MovieDetails() {
   const { id } = useParams();
   // const movieDetailsPage = movieList[id];
-  const [movieDetailsPage, setmovieDetailsPage] = useState({});
+  const [movieDetailsPage, setMovieDetailsPage] = useState({});
   const fetchMovie = () => {
-    fetch(`https://62b96bca41bf319d227c0882.mockapi.io/movie/${id}`, {
+    fetch(`${API}/movie/${id}`, {
       method: "GET",
     })
       .then((data) => data.json())
-      .then((mvs) => setmovieDetailsPage(mvs));
+      .then((mvs) => setMovieDetailsPage(mvs));
   };
 
   useEffect(() => fetchMovie(), []);

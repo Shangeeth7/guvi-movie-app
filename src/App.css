@@ -1,11 +1,9 @@
 .App {
   text-align: center;
   padding-top: 30px;
-  /* padding-left: 11px; */
 }
 .overAll {
   padding-left: 3px;
-  /* padding-bottom: 100px; */
 }
 
 .like-button {
@@ -23,22 +21,14 @@
   border-style: solid;
   object-fit: cover;
   padding-top: 20px;
-
-  /* background-color: red; */
 }
 
 .profilePic {
   width: 70%;
-  /* height: 250px; */
   border-radius: 1000px;
 }
-/* .movie-container :hover {
-  transform: scale(1.1);
-  cursor: pointer;
-  transition: 0.4s;
-} */
+
 .counter {
-  /* padding-top: 20px; */
   padding-bottom: 20px;
 }
 .app-css {
@@ -46,9 +36,7 @@
 }
 
 .movie-container {
-  /* padding-top: 13px; */
   width: 340px;
-  /* height: min-content; */
 }
 
 .movie-specs,
@@ -93,7 +81,7 @@
 .input-poster-url,
 .input-rating,
 .input-summary {
-  width: 40%;
+  width: 90%;
   font-size: 18px;
 }
 .input-name {
@@ -101,15 +89,8 @@
 }
 
 .input-addMovie-btn {
-  background-color: #4caf50;
-  border-radius: 100px;
-  border: none;
-  color: white;
-  padding: 15px 30px;
-  text-align: center;
-  font-size: 16px;
   cursor: pointer;
-  width: 10%;
+  width: 45%;
 }
 .input-addMovie-btn:hover {
   color: whitesmoke;
@@ -117,6 +98,9 @@
 
 .input-addMovie-btn-div {
   padding-top: 10px;
+  max-width: 90%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .Error404 {
@@ -209,6 +193,38 @@
   grid-template-columns: 1fr 1fr 1fr;
   /* grid-template-columns: repeat(3,1fr); */
   max-width: 600px;
+}
+
+.fun-color-change {
+  color: red;
+}
+
+.overlap-words {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+  color: whitesmoke;
+}
+
+.overlap-words span {
+  font-size: 10vw;
+  font-weight: 800;
+  text-shadow: -0.08em 0.03em 0.12em rgba(0, 0, 0, 0.9);
+}
+.overlap-words span:not(:first-child) {
+  margin-left: -0.2em;
+}
+.all-space {
+  padding-left: 60px;
+}
+
+.movie-summary::first-letter {
+  color: red;
+  font-size: 1.4rem;
+  font-family: "satisfy", cursive;
 }
 
 .fun-color-change {
