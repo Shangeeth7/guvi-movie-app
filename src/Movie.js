@@ -45,7 +45,7 @@ export function Movie({ movie, id, deleteButton, editButton }) {
               <InfoIcon
                 aria-label="movie details"
                 color="primary"
-                onClick={() => navigate(`/movie-page/${id}`)}
+                onClick={() => navigate(`/allmovies/${id}`)}
               />
             </IconButton>
           </h2>
