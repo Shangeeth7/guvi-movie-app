@@ -22,7 +22,7 @@ export function AddMovie() {
     };
 
     // setMovieList([...movieList, newMovie]);
-    fetch(`${API}/movie`, {
+    fetch(`${API}/movies`, {
       method: "POST",
       body: JSON.stringify(newMovie),
       headers: { "Content-Type": "application/json" },

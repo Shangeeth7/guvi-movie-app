@@ -10,7 +10,7 @@ export function EditMovie() {
 
   const [movieEditPage, setMovieEditPage] = useState(null);
   const fetchMovie = () => {
-    fetch(`${API}/movie/${id}`, {
+    fetch(`${API}/movies/${id}`, {
       method: "GET",
     })
       .then((data) => data.json())
@@ -46,7 +46,7 @@ function EditMovieForm({ movieEditPage }) {
     };
 
     // setMovieList([...movieList, updateMovie]);
-    fetch(`${API}/movie/${movieEditPage.id}`, {
+    fetch(`${API}/movies/${movieEditPage.id}`, {
       method: "PUT",
       body: JSON.stringify(updateMovie),
       headers: { "Content-Type": "application/json" },
