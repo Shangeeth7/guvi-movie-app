@@ -29,13 +29,13 @@ function MovieList() {
       {movieList.map((mv) => (
         // index and key are used to clear error in console
         <Movie
-          key={mv.id}
+          key={mv._id}
           movie={mv}
-          id={mv.id}
+          id={mv._id}
           deleteButton={
             <Button
               onClick={() => {
-                deleteMovie(mv.id);
+                deleteMovie(mv._id);
               }}
               style={{ marginLeft: "auto" }}
             >
@@ -45,7 +45,7 @@ function MovieList() {
           editButton={
             <Button
               onClick={() => {
-                navigate(`/movies/edit-movie/${mv.id}`);
+                navigate(`/movies/edit-movie/${mv._id}`);
               }}
             >
               <EditIcon color="secondary" />
